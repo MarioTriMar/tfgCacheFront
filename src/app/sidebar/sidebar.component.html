@@ -1,0 +1,92 @@
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet" />
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet" href="sidebar.component.css" />
+
+<div *ngIf="this.tipo=='customer'" class="wrapper d-flex align-items-stretch" style="height: 100% !important;">
+  <nav id="sidebar">
+  
+    <div class="p-4 pt-5">
+      
+      <div style="text-align: center;">
+        <img class="img-account-profile rounded-circle mb-5" style="height:125px; width:125px" src="../../assets/default.jpg"/>
+      </div>
+      <h3 style="
+          font-weight: bold;
+          text-transform: uppercase;
+          color: white;
+          text-align: center;
+        ">
+        {{this.customerName}}
+      </h3>
+      <ul class="list-unstyled components mb-5">
+        <li>
+          <a href="allCompanies"><i
+              class="fa-solid fa-building" style="color: #ffffff;margin-right:10px"></i>Companies</a>
+        </li>
+
+    
+        <li>
+          <a href="myOrders"><i 
+            class="fa-solid fa-bag-shopping" style="color: #ffffff;margin-right:10px"></i>My orders</a>
+        </li>
+        <li>
+          <a href="myProfile"><i 
+            class="fa-solid fa-user" style="color: #ffffff;margin-right:10px"></i>Edit profile</a>
+        </li>
+        <li>
+          <a (click)="logout()"><i class="fa-solid fa-right-from-bracket"
+              style="color: #ffffff;margin-right:10px"></i>Exit</a>
+        </li>
+        
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<div *ngIf="this.tipo=='company'" class="wrapper d-flex align-items-stretch" style="height: 100% !important;">
+  <nav id="sidebar">
+  
+    <div class="p-4 pt-5">
+      
+      <div style="text-align: center;">
+        <img class="img-account-profile rounded-circle mb-5" style="height:125px; width:125px" src="../../assets/default.jpg"/>
+      </div>
+      <h3 style="
+          font-weight: bold;
+          text-transform: uppercase;
+          color: white;
+          text-align: center;
+        ">
+        {{this.companyName}}
+      </h3>
+      <ul class="list-unstyled components mb-5">
+        <li>
+          <a href="myCompanyProducts"><i
+              class="fa-solid fa-wheat-awn" style="color: #ffffff;margin-right:10px"></i>Products</a>
+        </li>
+
+    
+        <li>
+          <a href="myCompanyOrders"><i 
+            class="fa-solid fa-bag-shopping" style="color: #ffffff;margin-right:10px"></i>Company orders</a>
+        </li>
+        <li>
+          <a href="myCompany"><i 
+            class="fa-solid fa-building" style="color: #ffffff;margin-right:10px"></i>Edit company</a>
+        </li>
+        <li>
+          <a (click)="logout()"><i class="fa-solid fa-right-from-bracket"
+              style="color: #ffffff;margin-right:10px"></i>Exit</a>
+        </li>
+        
+      </ul>
+    </div>
+  </nav>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>

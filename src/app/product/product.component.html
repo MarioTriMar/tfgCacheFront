@@ -1,0 +1,88 @@
+<div class="d-flex" id="content-wrapper" style="min-height: 2000px !important">
+    <div id="sidebar-container" class="border-right sidebar-container">
+      <app-sidebar></app-sidebar>
+    </div>
+    <div id="page-content-wrapper" class="w-100 bg-light-blue mw-100" style="background-color: #f0f0f0;">
+    
+        <div class="container vh-100">
+        <div class="row justify-content-md-center vh-100" style="padding-top: 20px">
+        
+  
+          
+  
+          <div class="col-xl-8" *ngIf="this.tipo=='create'">
+            <!-- Account details card-->
+            <div class="card mb-4">
+              <div class="card-header">Product</div>
+              <div class="card-body">
+                <form>
+                  <!-- Form Group (username)-->
+                  <div class="mb-3" >
+                    <label class="small mb-1" for="inputUsername">Name:</label>
+                    <input id="name"  name="name" class="form-control" [(ngModel)]="this.producto.name"
+                      id="name" type="text" placeholder="Enter your name" value="name" />
+                  </div>
+  
+                  <div class="mb-3" >
+                    <label class="small mb-1" for="details">Details:</label>
+                    <input id="details"  name="details"  class="form-control" type="text" [(ngModel)]="this.producto.details"
+                      placeholder="Enter details" value="details" />
+                  </div>
+                    
+                  <div class="mb-3" >
+                    <label class="small mb-1" for="price" >Price:</label>
+                    <input id="price"  name="price"  class="form-control" type="number" step="0.01" [(ngModel)]="this.producto.price"
+                      placeholder="Enter price" value="price" />
+                  </div>
+                  <!-- Save changes button-->
+                  <button  type="button" class="btn btn-success" style="margin: 10px;color:white" (click)="guardarProducto()"
+                    >
+                    <i class="fa-solid fa-floppy-disk" style="color: #ffffff;margin-right:10px"></i>Guardar producto
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-8" *ngIf="this.tipo=='update'">
+            <!-- Account details card-->
+            <div class="card mb-4">
+              <div class="card-header">Product</div>
+              <div class="card-body">
+                <form>
+                  <!-- Form Group (username)-->
+                  <div class="mb-3" >
+                    <label class="small mb-1" for="inputUsername">Name:</label>
+                    <input id="name"  name="name" class="form-control" [(ngModel)]="this.producto.name"
+                      id="name" type="text" placeholder="Enter your name" value="name" />
+                  </div>
+  
+                  <div class="mb-3" >
+                    <label class="small mb-1" for="details">Details:</label>
+                    <input id="details"  name="details"  class="form-control" type="text" [(ngModel)]="this.producto.details"
+                      placeholder="Enter details" value="details" />
+                  </div>
+                    
+                  <div class="mb-3" >
+                    <label class="small mb-1" for="price" >Price:</label>
+                    <input id="price"  name="price"  class="form-control" type="number" step="0.01" [(ngModel)]="this.producto.price"
+                      placeholder="Enter price" value="price" />
+                  </div>
+                  <!-- Save changes button-->
+                  <button  type="button" class="btn btn-success" style="margin: 10px;color:white" (click)="updateProduct()"
+                    >
+                    <i class="fa-solid fa-floppy-disk" style="color: #ffffff;margin-right:10px"></i>Actualizar producto
+                  </button>
+                  
+                  
+                 
+  
+  
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+  
+    </div>
+  </div>

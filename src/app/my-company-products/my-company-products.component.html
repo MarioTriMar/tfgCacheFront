@@ -1,0 +1,22 @@
+<div class="d-flex" id="content-wrapper" style="min-height: 3500px !important">
+    <div id="sidebar-container" class="border-right sidebar-container">
+      <app-sidebar></app-sidebar>
+    </div>
+    <div id="page-content-wrapper" class="w-100 bg-light-blue" style="background-color: #f0f0f0; text-align: center;">    
+        <button style="margin-top: 10px; border-radius: 50%; width: 55px; height: 55px;" class="btn btn-success" (click)="crearProducto()">
+            <i class="fa-solid fa-plus"></i>
+        </button>    
+        <div style="display: flex; flex-wrap: wrap; margin-top: 10px;">
+                <div class="card" style="width: 18rem; margin: auto; margin-bottom: 10px;" *ngFor="let product of products">
+                    <div class="card-body" style="text-align: center;">
+                        <h5 class="card-title">{{product.name}}</h5>
+                        <p class="card-text">{{product.details}}</p>
+                        <p class="card-text">{{product.price}}€</p>
+                        <p class="card-text">Stock: {{product.stock}}</p>
+                        <button  class="btn btn-success" (click)="actualizarProduct(product)">Editar</button>
+                        <button  style="margin-left:10px;" class="btn btn-info" (click)="cambiarStock(product.id)">Cambiar stock</button>
+                </div>
+            </div>
+        </div>     
+    </div>
+  </div>
