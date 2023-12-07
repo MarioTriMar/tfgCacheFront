@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { AppComponent } from '../app.component';
+import { LoginServiceService } from '../login-service.service';
 
 @Component({
   selector: 'app-login',
@@ -8,24 +9,33 @@ import { AppComponent } from '../app.component';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit{
-
-  constructor(private router:Router, private app:AppComponent){}
+  email: string
+  password: string
+  constructor(private router:Router, private app:AppComponent, private loginService:LoginServiceService){}
   ngOnInit(): void {
     this.app.enable=false
   }
   login(){
-    localStorage.setItem("tipo","customer")
-    localStorage.setItem("customerName", "Mario")
-    localStorage.setItem("customerId","6dffca5b-4856-4f22-aafe-94aecf7f1b39")
-    this.app.enable=true
-    this.router.navigate(["/allCompanies"])
+    this.loginService.getUser(this.email,this.password).subscribe(data=>{
+      localStorage.setItem("tipo", data.type)
+      this.app.enable=true
+      if(data.type=="customer"){
+        localStorage.setItem("customerName", data.name)
+        localStorage.setItem("customerId", data.id)
+        localStorage.setItem("image", data.image)
+        this.router.navigate(["/allCompanies"])
+      }else{
+        localStorage.setItem("companyName", data.name)
+        localStorage.setItem("companyId", data.id)
+        localStorage.setItem("image", data.image)
+        this.router.navigate(["/myCompanyProducts"])
+      }
+      
+      
+    })
+    
   }
-  loginCompany(){
-    localStorage.setItem("tipo", "company")
-    localStorage.setItem("companyName", "Mercadona")
-    localStorage.setItem("companyId","5f5b217b-94b5-49e7-b2fc-018d18f2b483")
-    this.app.enable=true
-    this.router.navigate(["/myCompanyProducts"])
-  }
+  
+  
 
 }
